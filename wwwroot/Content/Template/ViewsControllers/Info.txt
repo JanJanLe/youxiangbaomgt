@@ -1,0 +1,90 @@
+﻿@{
+    var KeyId = Tools.HttpHelper.Request.Query["ID"].ToString();
+    KeyId = KeyId.ToGuid() == Guid.Empty ? "" : KeyId;
+}
+<div id="app">
+    <div class="page-content animated fadeInDown">
+        <div class="container-fluid pb-100">
+            <div class="row" id="form">
+                <!--检索面板-->
+                @*<div class="col-sm-12">
+                        <h4 class="example-title">编号</h4>
+                        <input type="text" class="form-control" name="Role_Num" data-bind="value:Role_Num" placeholder="请输入 编号" />
+                    </div>
+
+                    <div class="col-sm-12">
+                        <h4 class="example-title">角色名</h4>
+                        <input type="text" class="form-control" name="Role_Name" data-bind="value:Role_Name" placeholder="请输入 角色名" />
+                    </div>
+
+                    <div class="col-sm-12">
+                        <h4 class="example-title">备注</h4>
+                        <textarea class="form-control" name="Role_Remark" data-bind="value:Role_Remark" placeholder="请输入 备注"></textarea>
+                    </div>*@
+				<!--以下是例子，请根据实际情况编写表单-->
+                @(UI.Input<Sys_Role>(item => item.Role_Num, 12))
+                @(UI.Input<Sys_Role>(item => item.Role_Name, 12))
+                @(UI.Textarea<Sys_Role>(item => item.Role_Remark, 12))
+
+
+            </div>
+
+        </div>
+    </div>
+    <!--按钮-->
+    <div class="my-ButtonBar text-right">
+        <button type="button" class="btn btn-success" v-show="form__KeyId" onclick="adminForm.resetUrl(null)">新增</button>
+        <button class="btn btn-primary" v-on:click="save">提交</button>
+        <button class="btn btn-danger" onclick="admin.layer.close(admin.getLayerIframeIndex());">关闭</button>
+    </div>
+</div>
+@section css{
+}
+@section js{
+    <script src="~/Admin/js/admin-form.js"></script>
+
+    <!--业务代码-->
+    <script type="text/javascript">
+        var vueApp = new Vue({
+            el: "#app",
+            data: {
+                form__KeyId: '@KeyId',
+                @(UI.CreateViewModel(new <#TableName#>()))
+            },
+            //页面加载完成
+            mounted() {
+                this.load();
+            },
+            //函数集合
+            methods: {
+                load() {
+                    //获取表单数据
+                    console.log(this);
+                    adminForm.load({
+                        KeyId: this.form__KeyId,
+                        url: "@Url.Action("LoadForm")",
+                        callBack: function (r) {
+
+                        }
+                    });
+
+                },
+                //保存
+                save() {
+                   adminForm.Save({
+                        url: "@Url.Action("Save")"
+                   });
+                },
+                //查找带回
+                findBack(row, tag, dom) {
+                    //if (row != null && row.length > 0) row = row[0];
+                    //if (tag == "Role") {
+                    //    this.Role_ID = (row ? row._ukid : "");
+                    //    this.Role_Name = (row ? row.Role_Name : "");
+                    //}
+                }
+
+            }
+        });
+    </script>
+}

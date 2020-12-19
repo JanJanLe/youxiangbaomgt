@@ -1,0 +1,71 @@
+body {
+    padding:20px; 
+}
+
+
+#App{
+    border: 1px  #e6e6e6 solid;
+    border-bottom-color: #f2f2f2;
+    margin-bottom: 0;
+    background-color: #f2f2f2;
+    padding-top: 6px;
+}
+
+.layui-table, .layui-table-view{
+    margin-top: 0;
+}
+
+.layui-btn-inline {
+    float: left;
+}
+
+.layui-btn-inline .layui-btn{
+    height: 36px;
+    line-height: 36px;
+    margin-top: 1px;
+    margin-left: 15px;
+}
+
+.layui-form .layui-inline .layui-input-inline{
+    min-width: 190px;
+    width: auto;
+}
+
+[v-cloak] {
+    display: none;
+}
+    .font-color-blue{color: blue}
+.font-color-aqua{color: aqua}
+.font-color-red{color: red}
+.font-color-gray{color: gray}
+.font-color-magenta{color: Magenta}
+.font-color-white{color: White}
+.font-color-yellow{color: Yellow}
+
+
+
+.ObjectBrace{color:#000000;font-weight:bold;}
+.ArrayBrace{color:#000000;font-weight:bold;}
+.PropertyName{color:#92278f;font-weight:bold;}
+.String{color:#3ab54a;}
+.Number{color:#25aae2;}
+.Comma{color:#000000;font-weight:bold;} 
+.layui-code-notepad .layui-code-ol li{
+    background-color: #fff;
+}
+.layui-code-view{
+    margin: 0;
+}
+.layui-code-notepad {
+    border: 1px solid #F2F2F2;
+    border-left-color: #F2F2F2;
+    background-color: #F2F2F2;
+    color: #0C0C0C;
+}
+
+p.layEditSwitch {
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}

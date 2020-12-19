@@ -1,0 +1,2214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core.IBusiness</name>
+    </assembly>
+    <members>
+        <member name="T:Core.IBusiness.IComment.IComment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.IComment.CommentExec(Core.DataAccess.Model.Project.Comment.CommentList,Core.Framework.Model.Common.SqlExecType,System.String)">
+            <summary>
+            评论相关操作
+            写入发生
+            - 初始化[Fabulous]  [Follow]
+            </summary>
+            <param name="model">数据模型</param>
+            <param name="sqlExecType">操作类型</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IComment.IComment.GetComments(System.Int32,System.Boolean,Core.Framework.Model.Common.Pagination,System.Collections.Generic.List{Core.IBusiness.IComment.Model.CommentAttributeEnum},System.String)">
+            <summary>
+            查询文章内容的相关评论
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="isGetReply">是否查询回复信息</param>
+            <param name="pagination">分页参数</param>
+            <param name="attributeEnums">获取属性，默认全查</param>
+            <param name="type">
+            自定义分类，
+            用于区分不同模块的评论内容
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IComment.IComment.CommentStar(System.Int32,System.Int32,System.String)">
+            <summary>
+            点赞
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IComment.IComment.CommentUnStar(System.Int32,System.Int32,System.String)">
+            <summary>
+            取消点赞
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IComment.ICommentAttribute">
+            <summary>
+            评论属性管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.ICommentAttribute.CommentAttributeExec(Core.DataAccess.Model.Project.Comment.CommentAttribute,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            评论属性相关操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IComment.ICommentModule">
+            <summary>
+            评论模块
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IComment.ICommentReply">
+            <summary>
+            评论回复模块
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.ICommentReply.CommentReplyExec(Core.DataAccess.Model.Project.Comment.CommentReply,Core.Framework.Model.Common.SqlExecType,System.String)">
+            <summary>
+            回复评论相关操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <param name="clientToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IComment.ICommentReply.GetCommentReply(System.Int32,Core.Framework.Model.Common.Pagination,System.Collections.Generic.List{Core.IBusiness.IComment.Model.CommentAttributeEnum})">
+            <summary>
+            查询评论的回复评论
+            </summary>
+            <param name="commentKey">评论关键字</param>
+            <param name="pagination">分页参数</param>
+            <param name="attributeEnums">获取属性，默认全查</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IComment.ICommentReply.CommentReplyStar(System.Int32,System.Int32,System.String)">
+            <summary>
+            点赞
+            </summary>
+            <param name="commentKey">评论关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IComment.ICommentReply.CommentUnReplyStar(System.Int32,System.Int32,System.String)">
+            <summary>
+            取消点赞
+            </summary>
+            <param name="commentKey">评论关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IComment.Model.CommentAttributeEnum">
+            <summary>
+            评论属性枚举
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Default">
+            <summary>
+            默认[冗余] 999
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Fabulous">
+            <summary>
+            赞 0
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Forward">
+            <summary>
+            转发 1
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Follow">
+            <summary>
+            关注 2
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.IsAdvertisement">
+            <summary>
+            是否是广告 3
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Product">
+            <summary>
+            商品 4
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.RoofPlacement">
+            <summary>
+            置顶 5
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Recommend">
+            <summary>
+            推荐 6
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentAttributeEnum.Essence">
+            <summary>
+            热门 7
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IComment.Model.CommentRedisCache">
+            <summary>
+            评论redis缓存工具箱
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentRedisCache.commentStarTableName">
+            <summary>
+            评论 TableName
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentRedisCache.commentReplyStarTableName">
+            <summary>
+            评论回复TableName
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.CommentRedisCache.redisDB">
+            <summary>
+            redis 仓库
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IComment.Model.CommentRedisCache.key">
+            <summary>
+            标识列
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key">标识列</param>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.CommentStar(System.Int32)">
+            <summary>
+            点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.CommentUnStar(System.Int32)">
+            <summary>
+            取消点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.GetCommentStar">
+            <summary>
+            获取点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.CommentReplyStar(System.Int32)">
+            <summary>
+            点赞评论回复
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.CommentReplyUnStar(System.Int32)">
+            <summary>
+            取消评论回复点赞
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.GetCommentReplyStar">
+            <summary>
+            获取评论回复点赞
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.CommentRedisCache.HashTableName(System.String)">
+            <summary>
+            获取HashName
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IComment.Model.InformationRedisCache">
+            <summary>
+            信息redis缓存工具箱
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.InformationRedisCache.informationStarTableName">
+            <summary>
+            信息点赞
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.InformationRedisCache.informationWatchTableName">
+            <summary>
+            信息关注
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IComment.Model.InformationRedisCache.redisDB">
+            <summary>
+            redis 仓库
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IComment.Model.InformationRedisCache.key">
+            <summary>
+            信息标识
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key">标识列</param>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.InfoStar(System.Int32)">
+            <summary>
+            点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.InfoUnStar(System.Int32)">
+            <summary>
+            取消点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.GetInfoStar">
+            <summary>
+            获取点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.InfoWatch(System.Int32)">
+            <summary>
+            点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.InfoUnWatch(System.Int32)">
+            <summary>
+            取消点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.GetInfoWatch">
+            <summary>
+            获取点赞评论
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IComment.Model.InformationRedisCache.HashTableName(System.String)">
+            <summary>
+            获取HashName
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IEntrepotModule.IEntrepot">
+            <summary>
+            库存管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GetProductType(System.String,Core.Framework.Model.Common.Pagination)">
+             1. 产品分类
+             2. 产品属性字典
+             3. 产品模板                   - x
+             4. 仓库产品                   - x
+             5. 采购入库
+             6. 销售出库
+             7. 产品日志
+            
+            <summary>
+            获取分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GetProductItemType(System.Int32,System.String)">
+            <summary>
+            根据关键字查询分类包含子分类
+            </summary>
+            <param name="type_key"></param>
+            <param name="project_token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ProductTypeExec(Core.DataAccess.Model.Project.Entrepot.ProductType,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            分类相关操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.DicTitleExec(Core.DataAccess.Model.Project.Entrepot.ProductParams,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            字典TITLE相关操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.DicContentExec(Core.DataAccess.Model.Project.Entrepot.ProductParamsDic,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            字典内容操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GerDicContent(System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取字典title属性集合
+            </summary>
+            <param name="project_token"></param>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GerDicItemContent(System.Int32,System.String)">
+            <summary>
+            获取指定字典内容
+            </summary>
+            <param name="param_key"></param>
+            <param name="project_token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ProductTemplateExec(Core.DataAccess.Model.Project.Entrepot.ProductTemplate,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            产品模板操作
+            </summary>
+            <param name="template">模板内容</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ConfirmProductTemplate(System.Int32,System.String)">
+            <summary>
+            确认产品模板
+            </summary>
+            <param name="temp_key"></param>
+            <param name="project_token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GetProductTemplate(System.Int32,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取指定分类产品模板
+            </summary>
+            <param name="type_key"></param>
+            <param name="project_token"></param>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GetSeachProductTemplate(System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            根据标题搜索产品模板
+            </summary>
+            <param name="title"></param>
+            <param name="project_token"></param>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.GetItemProductTemplate(System.Int32,System.String)">
+            <summary>
+            获取指定产品模板
+            </summary>
+            <param name="temp_key"></param>
+            <param name="project_token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ProductPurchase(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductPurchase})">
+            <summary>
+            产品采购
+            </summary>
+            <param name="purchases"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ProductSell(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductSell})">
+            <summary>
+            产品销售
+            </summary>
+            <param name="sells"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ProductReturnGoods(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductPurchase})">
+            <summary>
+            产品退货
+            </summary>
+            <param name="purchases"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.ProductSKU(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductSku})">
+            <summary>
+            注册产品库存
+            </summary>
+            <param name="skus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepot.UpdateSKU(System.Decimal,System.Decimal)">
+            <summary>
+            修改库存
+            </summary>
+            <param name="sku_key"></param>
+            <param name="count_stock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IEntrepotModule.IEntrepotOperation">
+            <summary>
+            产品运营属性
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepotOperation.OperationAttrbute(Core.DataAccess.Model.Project.Entrepot.ProductAttrbute,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            运营属性
+            </summary>
+            <param name="attrbute">属性实体</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IEntrepotModule.IEntrepotOperation.GetTemplateByAttributes(System.String,System.Collections.Generic.List{Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum},Core.Framework.Model.Common.Pagination,System.String)">
+            <summary>
+            根据属性获取产品信息
+            </summary>
+            <param name="projectToken">项目token</param>
+            <param name="search">搜索内容</param>
+            <param name="attributes">属性集合</param>
+            <param name="pagination">分页参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum">
+            <summary>
+            产品运营属性字典
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum.TopicRecommend">
+            <summary>
+            专题推荐
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum.SpikeActivity">
+            <summary>
+            秒杀活动
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum.LimitedTimeActivity">
+            <summary>
+            显示折扣
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum.HomeRecommendation">
+            <summary>
+            首页推荐
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IEntrepotModule.Model.EntrepotAttributeEnum.AdvertisingRecommendation">
+            <summary>
+            广告推荐
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IInformation.IInformation">
+            <summary>
+            信息操作接口
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationExec(Core.DataAccess.Model.Project.Information.InformationList,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            信息操作
+            ---------
+            写入发生
+            - 初始化[Fabulous]  [Follow]  [ReadingCount]  [Share]  
+            - 初始化按需[IsAdvertisement]  [Topic]  [AttrUser] 
+            </summary>
+            <param name="model">数据实体</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationAttributeExec(Core.DataAccess.Model.Project.Information.InformationAttribute,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            信息扩展属性操作
+            </summary>
+            <param name="model">数据模型</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationItem(Core.DataAccess.Model.Project.Information.InformationList,System.Collections.Generic.List{Core.IBusiness.IInformation.Model.InformationAttributeEnum})">
+            <summary>
+            获取单挑信息的所有信息【或者指定属性集合】
+            增加阅读量
+            </summary>
+            <param name="model"></param>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationSearch(System.Int32,System.String,Core.Framework.Model.Common.Pagination,System.String)">
+            <summary>
+            获取信息
+            支持搜索
+            支持指定分类
+            </summary>
+            <param name="Type">分类【可选参数】</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页参数</param>
+            <param name="search">搜索内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationAttributes(System.Int32,System.String,System.Collections.Generic.List{Core.IBusiness.IInformation.Model.InformationAttributeEnum},Core.Framework.Model.Common.Pagination,System.String,System.Boolean)">
+            <summary>
+            获取信息
+            支持分类
+            支持属性
+            支持搜索
+            </summary>
+            <param name="Type">分类【可选参数】</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页参数</param>
+            <param name="search">搜索内容</param>
+            <param name="attributes">属性集合</param>
+            <param name="isGetCommtent">是否查询评论</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationByAttributes(System.String,System.Collections.Generic.List{Core.IBusiness.IInformation.Model.InformationAttributeEnum},Core.Framework.Model.Common.Pagination,System.Int32,System.String,System.Boolean)">
+            <summary>
+            根据属性获取信息
+            </summary>
+            <param name="Type">分类</param>
+            <param name="projectToken">项目token</param>
+            <param name="search">搜索内容</param>
+            <param name="attributes">属性集合</param>
+            <param name="isGetCommtent">是否查询评论</param>
+            <param name="pagination">分页参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationUser(System.Int32,System.String,Core.Framework.Model.Common.Pagination,System.Collections.Generic.List{Core.IBusiness.IInformation.Model.InformationAttributeEnum},System.Int32,System.String)">
+            <summary>
+            获取用户发布的文章信息
+            </summary>
+            <param name="userKey">用户ID</param>
+            <param name="projectToken">项目Token</param>
+            <param name="pagination">分页参数</param>
+            <param name="search">搜索内容</param>
+            <param name="type">分类信息</param>
+            <param name="attributes">获取所有属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationUserByAttributes(System.Int32,System.String,Core.Framework.Model.Common.Pagination,System.Collections.Generic.List{Core.IBusiness.IInformation.Model.InformationAttributeEnum},System.Boolean,System.String)">
+            <summary>
+            根据属性获取用户发布的文章信息
+            </summary>
+            <param name="userKey">用户ID</param>
+            <param name="projectToken">项目Token</param>
+            <param name="pagination">分页参数</param>
+            <param name="search">搜索内容</param>
+            <param name="isGetCommtent">是否获取评论</param>
+            <param name="attributes">获取所有属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationStar(System.Int32,System.Int32,System.String)">
+            <summary>
+            点赞
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationUnStar(System.Int32,System.Int32,System.String)">
+            <summary>
+            取消点赞
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationWatch(System.Int32,System.Int32,System.String)">
+            <summary>
+            关注
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationUnWatch(System.Int32,System.Int32,System.String)">
+            <summary>
+            取消关注
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="clientToken">客户端Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.InformationRead(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            新增阅读量
+            </summary>
+            <param name="infoKey">信息关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="count">新增数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformation.GetInformationHistoryUser(System.Int32,System.Int32,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取用户浏览历史信息
+            </summary>
+            <param name="userKey">用户ID</param>
+            <param name="projectToken">项目Token</param>
+            <param name="type">搜索内容</param>
+            <param name="pagination">获取所有属性</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IInformation.IInformationType">
+            <summary>
+            信息分类
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformationType.InformationTypeExec(Core.DataAccess.Model.Project.Information.InformationType,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            信息分类操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformationType.InformationTypeAttributeExec(Core.DataAccess.Model.Project.Information.InformationTypeAttribute,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            信息分类扩展属性操作
+            </summary>
+            <param name="model"></param>
+            <param name="sqlExecType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformationType.GetInformationType(System.Int32,System.String)">
+            <summary>
+            获取指定信息类型
+            </summary>
+            <param name="projectToken"></param>
+            <param name="typeKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformationType.GetInformationTypeUser(System.Int32,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取指定用户创建的信息类型
+            </summary>
+            <param name="projectToken"></param>
+            <param name="userKey"></param>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IInformation.IInformationType.GetInformationTypes(System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取信息类型列表
+            </summary>
+            <param name="projectToken"></param>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IInformation.Model.InformationAttributeEnum">
+            <summary>
+            信息属性
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Default">
+            <summary>
+            默认[冗余] 999
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Fabulous">
+            <summary>
+            赞 0
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Forward">
+            <summary>
+            转发 1
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Follow">
+            <summary>
+            关注 2
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.ReadingCount">
+            <summary>
+            阅读量 3
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Share">
+            <summary>
+            分享 4
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.IsAdvertisement">
+            <summary>
+            是否是广告 5
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Product">
+            <summary>
+            商品 6
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Topic">
+            <summary>
+            话题 7
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.RoofPlacement">
+            <summary>
+            置顶 8
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Recommend">
+            <summary>
+            推荐 9
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Essence">
+            <summary>
+            精华 10
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.HomePage">
+            <summary>
+            首页显示 11
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.AttrUser">
+            <summary>
+            @用户 12
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationAttributeEnum.Tag">
+            <summary>
+            标签 13
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IInformation.Model.InformationTypeAttributeEnum">
+            <summary>
+            分类属性信息
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationTypeAttributeEnum.Default">
+            <summary>
+            默认[冗余] 999
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationTypeAttributeEnum.Admini">
+            <summary>
+            管理员 1
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationTypeAttributeEnum.MinAdmin">
+            <summary>
+            小管理 2
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationTypeAttributeEnum.Module">
+            <summary>
+            模块
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IInformation.Model.InformationTypeAttributeEnum.Discription">
+            <summary>
+            说明信息
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.ILoggerModule.ILog">
+            <summary>
+            日志接口
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.Info``1(System.String,System.String)">
+            <summary>
+            输出Info日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.DeBug``1(System.String,System.String)">
+            <summary>
+            输出DeBug日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.Warning``1(System.String,System.String)">
+            <summary>
+            输出Warning日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.Error``1(System.String,System.String)">
+            <summary>
+            输出Error日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.SqlServer``1(System.String,System.String,System.String,System.String)">
+            <summary>
+            输出SqlServer日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.Queue``1(System.String,System.String,System.String,System.String)">
+            <summary>
+            输出Queue日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.Request``1(System.String,System.String,System.String,System.String)">
+            <summary>
+            输出Request日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.Customize``1(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            输出Customize日志
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.GetRequestLoggers(Core.Framework.Model.Common.Pagination,System.String,System.String)">
+            <summary>
+            获取Request日志
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="projectToken">项目Token</param>
+            <param name="search">搜索值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.GetQueueLoggers(Core.Framework.Model.Common.Pagination,System.DateTime,System.DateTime,System.String,System.String)">
+            <summary>
+            获取Queue日志
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="search">搜索值</param>
+            <param name="projectToken">项目Token</param>
+            <param name="starTime">起始时间</param>
+            <param name="endTime">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.GetSqlServerLoggers(Core.Framework.Model.Common.Pagination,System.String,System.String)">
+            <summary>
+            获取SqlServer日志
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="projectToken">项目Token</param>
+            <param name="search">搜索值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.GetLoggers(Core.Framework.Model.Common.Pagination,System.DateTime,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取日志
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="projectToken">项目Token</param>
+            <param name="template">消息模板</param>
+            <param name="starTime">开始时间</param>
+            <param name="endTime">结束时间</param>
+            <param name="tag">标签</param>
+            <param name="tagFlag">标签旗帜</param>
+            <param name="search">搜索值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.GetTemplates(System.String)">
+            <summary>
+            获取 所有 Template
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ILoggerModule.ILog.GetTags(System.String,System.String)">
+            <summary>
+            获取 所有 Tag
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IOrderModule.IOrder">
+            <summary>
+            订单相关操作
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.PlaceTheOrder(Core.DataAccess.Model.Project.Order.OrderBasis,System.Collections.Generic.List{Core.DataAccess.Model.Project.Order.OrderProduct},Core.DataAccess.Model.Project.Order.OrderAddress)">
+            <summary>
+            下订单
+            </summary>
+            <param name="orderBasis">基础模型</param>
+            <param name="products">订单产品</param>
+            <param name="address">配送地址</param>
+            <returns>订单关键字</returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.DeleteOrder(System.Int32,System.String)">
+            <summary>
+            删除订单
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="project_token">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.CancelOrder(System.Int32,System.String)">
+            <summary>
+            取消订单
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="project_token">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderPaymentUpdate(System.Int32,System.Decimal,System.String)">
+            <summary>
+            修改订单付款金额
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="price">修改金额</param>
+            <param name="project_token">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderPayment(Core.DataAccess.Model.Project.Order.OrderPay)">
+            <summary>
+            订单付款
+            </summary>
+            <param name="payment_ordel">付款数据模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderShipments(System.Collections.Generic.List{Core.DataAccess.Model.Project.Order.OrderShipments})">
+            <summary>
+            订单产品发货
+            </summary>
+            <param name="shipmentses">发货模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderShipmentsConfirm(System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            订单产品发货确认
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="user_key">确认人</param>
+            <param name="complete_time">确认时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderReturnsApply(System.Collections.Generic.List{Core.DataAccess.Model.Project.Order.OrderReturns})">
+            <summary>
+            订单退货申请
+            </summary>
+            <param name="returnses">退货申请模型集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderReturns(System.Collections.Generic.List{Core.DataAccess.Model.Project.Order.OrderShipments})">
+            <summary>
+            订单产品退货
+            </summary>
+            <param name="shipmentses">产品退货模型集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderRefundApply(Core.DataAccess.Model.Project.Order.OrderRefund)">
+            <summary>
+            订单退款申请
+            </summary>
+            <param name="refund">退货申请模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderRefundStuas(System.Int32,Core.IBusiness.IOrderModule.Model.OrderBitStatu,System.DateTime)">
+            <summary>
+            退款申请状态处理
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="status">处理状态</param>
+            <param name="update_last_time">操作时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderRefundUpdate(System.Int32,System.Int32,System.Decimal)">
+            <summary>
+            退款订单修改订单金额
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="order_refund_key">退款关键字</param>
+            <param name="price">修改金额</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderRefundPay(System.Int32,System.Decimal,System.DateTime)">
+            <summary>
+            退款订单支付完成
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="payment"></param>
+            <param name="complete">操作时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderAddressUpdate(System.Int32,System.String)">
+            <summary>
+            修改地址
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="content">地址信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderAddressUpdate(System.Int32,System.String,System.Int32)">
+            <summary>
+            修改指定产品收货地址
+            </summary>
+            <param name="order_key">订单号</param>
+            <param name="content">地址信息</param>
+            <param name="product_key">产品关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderServeApply(Core.DataAccess.Model.Project.Order.OrderServe)">
+            <summary>
+            订单申请售后
+            </summary>
+            <param name="model">订单申请服务模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderServeUpdate(System.Int32,System.String)">
+            <summary>
+            修改售后相关信息
+            </summary>
+            <param name="OrderServe">订单申请服务关键字</param>
+            <param name="content">内容信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderAccident(Core.DataAccess.Model.Project.Order.OrderAccident)">
+            <summary>
+            订单额外事件
+            </summary>
+            <param name="model">额外事件模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.OrderLog(Core.DataAccess.Model.Project.Order.OrderLog,Core.IBusiness.IOrderModule.Model.OrderLogType)">
+            <summary>
+            订单日志
+            </summary>
+            <param name="model">订单日志模型</param>
+            <param name="type">日志类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.AddUserCart(Core.DataAccess.Model.Project.Order.OrderUserCart)">
+            <summary>
+            加入用户购物车
+            </summary>
+            <param name="model">用户购物车模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.DeleteUserCart(System.Int32,System.String)">
+            <summary>
+            删除用户购物车
+            </summary>
+            <param name="cart_key">购物车关键字</param>
+            <param name="project_token">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.UpdateUserCartItem(Core.DataAccess.Model.Project.Order.OrderUserCart)">
+            <summary>
+            修改购物车数量信息
+            </summary>
+            <param name="model">购物车模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.UserCartOrder(Core.DataAccess.Model.Project.Order.OrderBasis,Core.DataAccess.Model.Project.Order.OrderAddress,System.Collections.Generic.List{Core.DataAccess.Model.Project.Order.OrderUserCart})">
+            <summary>
+            根据购物车下单
+            </summary>
+            <param name="userCarts">购物车模型集合</param>
+            <param name="orderBasis">基础模型</param>
+            <param name="address">配送地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.GetUserCart(System.Int32,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取用户购物车
+            </summary>
+            <param name="user_key">用户关键字</param>
+            <param name="project_token">项目Token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.GetOrder(System.String,Core.IBusiness.IOrderModule.Model.OrderStatus,Core.IBusiness.IOrderModule.Model.OrderType,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            查询用户订单
+            </summary>
+            <param name="project_token"></param>
+            <param name="order_statu">订单状态</param>
+            <param name="order_type">订单类型</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.GetOrderUser(System.Int32,System.String,Core.IBusiness.IOrderModule.Model.OrderStatus,Core.IBusiness.IOrderModule.Model.OrderType,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            查询指定用户订单
+            </summary>
+            <param name="user_key">用户关键字</param>
+            <param name="project_token">项目Token</param>
+            <param name="order_statu">订单状态</param>
+            <param name="order_type">订单类型</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.GetOrderItem(System.Int32,System.String)">
+            <summary>
+            查询用户单笔订单详情
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <param name="project_token">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.GetOrderCount(System.Int32,System.String)">
+            <summary>
+            订单统计
+            </summary>
+            <param name="user_key">用户关键字</param>
+            <param name="project_token">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.UserAddressExec(Core.DataAccess.Model.Project.Order.OrderUserAddress,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            用户地址信息操作
+            </summary>
+            <param name="model">用户地址信息</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IOrderModule.IOrder.GetUserAddress(Core.DataAccess.Model.Project.Order.OrderUserAddress)">
+            <summary>
+            获取指定用户配置地址信息
+            </summary>
+            <param name="model">查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IOrderModule.Model.OrderBitStatu">
+            <summary>
+            处理状态
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderBitStatu.failure">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderBitStatu.succeed">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderBitStatu.underway">
+            <summary>
+            进行中
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IOrderModule.Model.OrderExpressType">
+            <summary>
+            订单物流类型
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderExpressType.shipments">
+            <summary>
+            发货
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderExpressType.returns">
+            <summary>
+            退货
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IOrderModule.Model.OrderLogType">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_status">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_shipments">
+            <summary>
+            发货
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_returns">
+            <summary>
+            退货
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_pay">
+            <summary>
+            付款
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_refund">
+            <summary>
+            退款
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_serve">
+            <summary>
+            售后
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderLogType.order_product">
+            <summary>
+            订单产品
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IOrderModule.Model.OrderStatus">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_check">
+            <summary>
+            审核
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_shipments">
+            <summary>
+            发货
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_shipments_check">
+            <summary>
+            订单发货确认
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_pay">
+            <summary>
+            订单支付
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_ok">
+            <summary>
+            订单完成
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_delete">
+            <summary>
+            订单删除
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_returns">
+            <summary>
+            订单退货
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_refund">
+            <summary>
+            订单退款
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderStatus.order_returns_refund">
+            <summary>
+            退货退款
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IOrderModule.Model.OrderType">
+            <summary>
+            订单类型
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderType.shop">
+            <summary>
+            销售
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IOrderModule.Model.OrderType.purchase">
+            <summary>
+            采购
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IProjectModule.IProject">
+            <summary>
+            项目管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProject.IsExist(System.Int32,System.String)">
+            <summary>
+            验证项目信息
+            </summary>
+            <param name="userKey">用户ID</param>
+            <param name="projectToken">项目Token</param>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProject.GetProjectInfo(System.Int32,System.String)">
+            <summary>
+            获取项目信息
+            </summary>
+            <returns>T项目信息实体</returns>
+            <param name="userKey">用户ID</param>
+            <param name="projectToken">项目Token</param>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProject.GetProjectInfoAndPayInfoByScheme(System.String)">
+            <summary>
+            获取项目信息
+            支付信息
+            </summary>
+            <returns>T项目信息实体</returns>
+            <param name="scheme">配置URL</param>
+        </member>
+        <member name="T:Core.IBusiness.IProjectModule.IProjectApiService">
+            <summary>
+            项目API服务接口管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectApiService.ProjectApiServiceExec(Core.DataAccess.Model.Projects.ProjectApi,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            API服务操作
+            </summary>
+            <param name="model">实体内容</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectApiService.GetProjectApiService(System.Int32)">
+            <summary>
+            获取指定Api信息
+            </summary>
+            <param name="key">API关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IProjectModule.IProjectPayInfo">
+            <summary>
+            项目支付配置管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectPayInfo.AliPayInfoExec(Core.DataAccess.Model.Projects.ProjectAliPay,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            支付宝配置管理
+            </summary>
+            <param name="model">实体内容</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectPayInfo.WChatPayInfoExec(Core.DataAccess.Model.Projects.ProjectWChatPay,Core.Framework.Model.Common.SqlExecType)">
+            <summary>
+            微信支付配置管理
+            </summary>
+            <param name="model">实体内容</param>
+            <param name="sqlExecType">操作类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectPayInfo.GetAliPayInfo(System.Int32)">
+            <summary>
+            获取支付宝配置信息
+            </summary>
+            <param name="projectKey">项目关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectPayInfo.GetWChatPayInfo(System.Int32)">
+            <summary>
+            获取微信支付配置信息
+            </summary>
+            <param name="projectKey">项目关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IProjectModule.IProjectUserApiService">
+            <summary>
+            API用户服务
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectUserApiService.UserAddOrder(Core.DataAccess.Model.Projects.ProjectUserApiOrder)">
+            <summary>
+            用户添加订单
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectUserApiService.UserOrderPay(System.Int32)">
+            <summary>
+            用户订单付款
+            </summary>
+            <param name="key">订单关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectUserApiService.IsApiAvailability(System.Int32,System.Int32)">
+            <summary>
+            检查指定API是否可用
+            </summary>
+            <param name="userKey">用户关键字</param>
+            <param name="apiKey">API关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectUserApiService.GetUserOrders(System.Int32,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取订单列表
+            </summary>
+            <param name="userKey">用户关键字</param>
+            <param name="pagination">分页参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectUserApiService.GetOrderPrice(System.Int32)">
+            <summary>
+            获取订单需支付金额
+            </summary>
+            <param name="key">获取订单关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IProjectModule.IProjectUserApiService.UseApiCount(System.Int32,System.Int32)">
+            <summary>
+            使用计数服务
+            触发计数器计算
+            </summary>
+            <param name="userKey">用户关键字</param>
+            <param name="apiKey">API关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IProjectModule.Model.APIServiceEnum">
+            <summary>
+            Api服务枚举
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IProjectModule.Model.APIServiceEnum.SMS">
+            <summary>
+            短信
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IProjectModule.Model.APIServiceEnum.Queue">
+            <summary>
+            队列
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.IProjectModule.Model.APIServiceEnum.Express">
+            <summary>
+            快递轨迹
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.IAliPay">
+            <summary>
+            支付宝支付接口
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.IAliPay.AliShopOrderPay(System.Int32,Core.Framework.Model.Common.ApiProjectInfo)">
+            <summary>
+            电商订单付款
+            </summary>
+            <param name="orderKey">订单号</param>
+            <param name="projectInfo">项目信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.IAliPay.AliPay(System.Decimal,System.String,Core.Framework.Model.Common.ApiProjectInfo)">
+            <summary>
+            电商订单付款
+            </summary>
+            <param name="price">订单金额</param>
+            <param name="title">订单名称</param>
+            <param name="projectInfo">项目信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.IPay">
+            <summary>
+            支付接口
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.ISMS">
+            <summary>
+            短信服务
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.ISMS.Plus(System.String,System.String,System.String)">
+            <summary>
+            推送通知
+            </summary>
+            <param name="toPhone">发送手机</param>
+            <param name="content">短信内容</param>
+            <param name="sign">短信签名</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.ISMSPay">
+            <summary>
+            支付相关
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.ISMSPay.UserPay(System.String,System.String)">
+            <summary>
+            用户付款
+            </summary>
+            <param name="toPhone">发送手机</param>
+            <param name="sign">短信签名</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.ISMSUser">
+            <summary>
+            会员信息操作相关
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.ISMSUser.UserReg(System.String,System.String)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="toPhone">发送手机</param>
+            <param name="sign">短信签名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.ISMSUser.UserLogin(System.String,System.String)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="toPhone">发送手机</param>
+            <param name="sign">短信签名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.ISMSUser.UserUpdatePassword(System.String,System.String)">
+            <summary>
+            用户修改密码
+            </summary>
+            <param name="toPhone">发送手机</param>
+            <param name="sign">短信签名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.ISMSUser.UserBingPhone(System.String,System.String)">
+            <summary>
+            用户绑定手机
+            </summary>
+            <param name="toPhone">发送手机</param>
+            <param name="sign">短信签名</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.IWCahtPay">
+            <summary>
+            微信付款
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.IWCahtPay.WChatShopOrderPay(System.Int32,Core.Framework.Model.Common.ApiProjectInfo)">
+            <summary>
+            电商订单付款
+            </summary>
+            <param name="orderKey">订单号</param>
+            <param name="projectInfo">项目信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.IWCahtPay.WChatPay(System.Decimal,System.String,Core.Framework.Model.Common.ApiProjectInfo)">
+            <summary>
+            付款
+            </summary>
+            <param name="price">订单金额</param>
+            <param name="title">订单名称</param>
+            <param name="projectInfo">项目信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.PayKeyEnum">
+            <summary>
+            付款密钥配置枚举
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.ISDK.PayKeyEnum.窗帘店">
+            <summary>
+            家里的
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.ISDK.PayKeyEnum.MyCompany">
+            <summary>
+            我的公司
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.ISDK.PayKeyEnum.常青藤">
+            <summary>
+            学校的项目
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.ISDK.PayKey">
+            <summary>
+            支付密钥管理
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.ISDK.PayKey.app_id">
+            <summary>
+            APPID
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.ISDK.PayKey.privtekey">
+            <summary>
+            私钥
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.ISDK.PayKey.publickey">
+            <summary>
+            公钥
+            </summary>
+        </member>
+        <member name="F:Core.IBusiness.ISDK.PayKey.alipay_url">
+            <summary>
+            APi地址
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISDK.PayKey.#ctor(Core.IBusiness.ISDK.PayKeyEnum)">
+            <summary>
+            
+            </summary>
+            <param name="payType">付款类型</param>
+        </member>
+        <member name="T:Core.IBusiness.ISocketModule.IQueue">
+            <summary>
+            消息队列
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.Publish(Core.Framework.Model.WebSockets.QueryMessage)">
+            <summary>
+            发布
+            </summary>
+            <param name="message">消息体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.DebugPublish(Core.Framework.Model.WebSockets.QueryMessageTest)">
+            <summary>
+            测试专用发布接口
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.Subscribe(System.String,System.String)">
+            <summary>
+            订阅
+            </summary>
+            <param name="token">用户Token</param>
+            <param name="subChannel">订阅渠道</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.UnSubscribe(System.String,System.String)">
+            <summary>
+            撤回
+            </summary>
+            <param name="token">用户Token</param>
+            <param name="subChannel">订阅渠道</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.Fail(Core.Framework.Model.ViewModel.QueueRequest)">
+            <summary>
+            任务失败
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.Confirm(Core.Framework.Model.ViewModel.QueueRequest)">
+            <summary>
+            消息确认
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.IQueue.Finished(Core.Framework.Model.ViewModel.QueueRequest)">
+            <summary>
+            任务已完成
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISocketModule.ISocketGroup">
+            <summary>
+            群组管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.GetById(System.Int32,System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="id">群组关键字</param>
+            <param name="projectToken">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.GetByUserKey(System.String,System.String)">
+            <summary>
+            查询用户群组信息列表
+            </summary>
+            <param name="userKey">用户关键字</param>
+            <param name="projectToken">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.GetGroupsByUserKey(System.String,System.String)">
+            <summary>
+            查询用户加入的群组
+            </summary>
+            <param name="userKey">用户关键字</param>
+            <param name="projectToken">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.GetGroupUsersByGroupKey(System.Int32,System.String)">
+            <summary>
+            查询群组成员
+            </summary>
+            <param name="id">群组关键字</param>
+            <param name="projectToken">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.Create(Core.DataAccess.Model.Project.Queue.ProjectModuleGroup)">
+            <summary>
+            创建
+            </summary>
+            <param name="model">群组模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.Update(Core.DataAccess.Model.Project.Queue.ProjectModuleGroup)">
+            <summary>
+            修改
+            </summary>
+            <param name="model">群组模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.Delete(System.Int32,System.String,System.String)">
+            <summary>
+            解散
+            </summary>
+            <param name="id">群组关键字</param>
+            <param name="userKey">用户关键字</param>
+            <param name="projectToken">项目Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.AddGroupUser(Core.DataAccess.Model.Project.Queue.ProjectModuleGroupUser)">
+            <summary>
+            加入群组
+            </summary>
+            <param name="model">群组用户模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketGroup.UpdateGroupUser(Core.DataAccess.Model.Project.Queue.ProjectModuleGroupUser)">
+            <summary>
+            修改组员信息
+            </summary>
+            <param name="model">群组用户模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.ISocketModule.ISocketMessage">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetOfflineMessages(System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取离线消息
+            [not delete]
+            </summary>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetOfflineMessagesByMsgKey(System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取离线消息
+            [not delete]
+            </summary>
+            <param name="msgKey">消息key</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetOfflineMessagesByMsgKeyAndTemplate(System.String[],System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取离线消息
+            [delete]
+            </summary>
+            <param name="msgKeys">订阅消息集合</param>
+            <param name="template">主题</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetGroupMessages(System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取群组消息
+            </summary>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetGroupMessagesByMsgKey(System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取群组消息
+            </summary>
+            <param name="msgKey">消息key</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetGroupMessagesByMsgKeyAndTemplate(System.String,System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取群组消息
+            </summary>
+            <param name="msgKey">消息key</param>
+            <param name="template">主题</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetBackupsMessages(System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取历史消息
+            </summary>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetBackupsMessagesByMsgKey(System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取历史消息
+            </summary>
+            <param name="msgKey">消息key</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.GetBackupsMessagesByMsgKeyAndTemplate(System.String,System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取历史消息
+            </summary>
+            <param name="msgKey">消息key</param>
+            <param name="template">主题</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.SaveSingleOffLine(StackExchange.Redis.RedisValue[])">
+            <summary>
+            单一订阅用户离线消息
+            </summary>
+            <param name="values"></param>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketMessage.SaveHistory(StackExchange.Redis.RedisValue[])">
+            <summary>
+            历史消息
+            </summary>
+            <param name="values"></param>
+        </member>
+        <member name="T:Core.IBusiness.ISocketModule.ISocketRelationship">
+            <summary>
+            好友关系管理
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.GetAll(System.String,System.String)">
+            <summary>
+            查询用户关系
+            [分组列表]
+            [好友列表]
+            </summary>
+            <param name="userKey"></param>
+            <param name="projectToken">项目token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.GetGroupMembersByGroupKey(System.Int32,System.String)">
+            <summary>
+            查询指定得分组好友
+            </summary>
+            <param name="groupKey">分组 ID</param>
+            <param name="projectToken">项目token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.GetItemGroupMember(System.Int32,System.String)">
+            <summary>
+            查询指定好友信息
+            </summary>
+            <param name="id">好友关键字</param>
+            <param name="projectToken">项目token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.CreateGroup(Core.DataAccess.Model.Project.Queue.ProjectUserGroup)">
+            <summary>
+            创建分组
+            </summary>
+            <param name="model">分组模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.UpdateGroup(Core.DataAccess.Model.Project.Queue.ProjectUserGroup)">
+            <summary>
+            修改分组
+            </summary>
+            <param name="model">分组模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.DeleteGroup(System.Int32,System.String)">
+            <summary>
+            删除分组
+            </summary>
+            <param name="id">分组关键字</param>
+            <param name="projectToken">项目token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.CreateGroupMember(Core.DataAccess.Model.Project.Queue.ProjectUserGroupMember)">
+            <summary>
+            创建成员
+            </summary>
+            <param name="model">分组成员模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.UpdateGroupMember(Core.DataAccess.Model.Project.Queue.ProjectUserGroupMember)">
+            <summary>
+            修改成员
+            </summary>
+            <param name="model">分组成员模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.ISocketModule.ISocketRelationship.DeleteGroupMember(System.Int32,System.String)">
+            <summary>
+            删除成员
+            </summary>
+            <param name="id">分组成员关键字</param>
+            <param name="projectToken">项目token</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.IProjectUser">
+            <summary>
+            项目用户模块
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.IProjectUser.Login(System.String,System.String,System.Int32)">
+            <summary>
+            账户密码登陆
+            </summary>
+            <param name="user">用户名</param>
+            <param name="password">密码</param>
+            <param name="hour">项目TOKEN时效性</param>
+            <returns>用户临时TOKEN，和用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.IProjectUser.LoginByToken(System.String,System.String,System.Int32)">
+            <summary>
+            根据用户TOKNE登陆
+            </summary>
+            <param name="token">token</param>
+            <param name="password">密码</param>
+            <param name="hour">token时效性</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.IProjectUser.UpdateUserInfo(Core.DataAccess.Model.Projects.ProjectUser)">
+            <summary>
+            修改用户信息
+            查找 [用户名和密码] [OPENID]
+            相匹配的用户
+            </summary>
+            <param name="model">用户信息</param>
+            <returns>用户临时TOKEN，和用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.IProjectUser.Reg(Core.DataAccess.Model.Projects.ProjectUser)">
+            <summary>
+            用户注册
+            校验 [手机是否重复]
+            </summary>
+            <param name="model">用户信息</param>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.IProjectUser.OutLogin(System.String)">
+            <summary>
+            退出登陆
+            </summary>
+            <param name="token">登陆token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.IProjectUser.GetUserInfoByToken(System.String)">
+            <summary>
+            根据临时TOKNE获取用户信息
+            </summary>
+            <param name="token">临时Token</param>
+            <returns>是否过期|用户信息</returns>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.ISocketUser">
+            <summary>
+            C端用户信息
+            </summary>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.Login(Core.IBusiness.IUserModule.Model.LoginByUser)">
+            <summary>
+            账户密码登陆
+            </summary>
+            <param name="login">登陆参数</param>
+            <returns>用户临时TOKEN，和用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.LoginByPhone(Core.IBusiness.IUserModule.Model.LoginByPhone)">
+            <summary>
+            根据手机号登陆和密码
+            </summary>
+            <param name="login">登陆参数</param>
+            <returns>用户临时TOKEN，和用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.LoginByWChat(Core.IBusiness.IUserModule.Model.LoginByWChat)">
+            <summary>
+            根据微信OPENID获取用户信息|注册
+            </summary>
+            <param name="login">登陆参数</param>
+            <returns>用户临时TOKEN，和用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.LoginByClient(Core.IBusiness.IUserModule.Model.LoginByUUID)">
+            <summary>
+            根据客户端UUID登陆|注册
+            </summary>
+            <param name="login">登陆参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.LoginByClientCode(Core.IBusiness.IUserModule.Model.LoginByPhoneCode)">
+            <summary>
+            手机验证码登录
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.UpdateUserInfo(Core.DataAccess.Model.Project.Queue.ProjectModuleUser)">
+            <summary>
+            修改用户信息
+            查找 [用户名和密码] [OPENID]
+            相匹配的用户
+            </summary>
+            <param name="model">用户信息</param>
+            <returns>用户临时TOKEN，和用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.UpdateUserInfoParas(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            修改用户指定属性
+            </summary>
+            <param name="key">用户关键字</param>
+            <param name="userToken">用户token</param>
+            <param name="projectToken">项目token</param>
+            <param name="paras">属性西悉尼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.Reg(Core.DataAccess.Model.Project.Queue.ProjectModuleUser)">
+            <summary>
+            用户注册
+            校验 [项目是否存在] [用户名是否重复] [OPENID是否重复]
+            </summary>
+            <param name="model">用户信息</param>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.LoginByKey(System.Int32,System.String,System.Int32)">
+            <summary>
+            根据客户端UserID获取用户信息
+            </summary>
+            <param name="userID">用户关键字</param>
+            <param name="projectToken">项目token</param>
+            <param name="hour">缓存时间（小时）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.GetUserInfoByToken(System.String,System.String)">
+            <summary>
+            根据临时TOKNE获取用户信息
+            </summary>
+            <param name="token">用户token</param>
+            <param name="projectToken">项目token</param>
+            <returns>是否过期|用户信息</returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.GetUserInfoAll(System.String)">
+            <summary>
+            获取当前项目所有用户信息
+            </summary>
+            <param name="projectToken">项目token</param>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.GetUserInfoAll(System.DateTime,System.DateTime,System.String,System.String,Core.Framework.Model.Common.Pagination)">
+            <summary>
+            查询用户列表
+            </summary>
+            <param name="startTime">开始时间</param>
+            <param name="endTime">结束时间</param>
+            <param name="search">搜索关键字</param>
+            <param name="projectToken">项目token</param>
+            <param name="pagination">分页</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.IBusiness.IUserModule.ISocketUser.OutLogin(System.String,System.String)">
+            <summary>
+            退出登陆
+            </summary>
+            <param name="token">用户token</param>
+            <param name="projectToken">项目token</param>
+            <returns>是否过期|用户信息</returns>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.BaseLogin">
+            <summary>
+            登陆基础参数
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.BaseLogin.hour">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.BaseLogin.WsParameter">
+            <summary>
+            WS登陆参数
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.BaseLogin.ApiProjectInfo">
+            <summary>
+            项目信息
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.LoginByPhone">
+            <summary>
+            手机号码登陆
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByPhone.phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByPhone.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.LoginByPhoneCode">
+            <summary>
+            手机号码登陆
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByPhoneCode.phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByPhoneCode.token">
+            <summary>
+            验证码Token
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByPhoneCode.code">
+            <summary>
+            手机验证码
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.LoginByUser">
+            <summary>
+            用户名密码登陆
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByUser.user">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByUser.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.LoginByUUID">
+            <summary>
+            根据客户端ID登陆
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByUUID.uuid">
+            <summary>
+            UUID
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.LoginByWChat">
+            <summary>
+            微信登陆
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.LoginByWChat.wchat">
+            <summary>
+            微信Token
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IUserModule.Model.WsParameter">
+            <summary>
+            ws 登陆参数
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.WsParameter.Parameter">
+            <summary>
+            扩展参数
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.WsParameter.Url">
+            <summary>
+            WS 回调地址
+            </summary>
+        </member>
+        <member name="P:Core.IBusiness.IUserModule.Model.WsParameter.Template">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="T:Core.IBusiness.IWalletModule.IWallet">
+            <summary>
+            钱包项目
+            </summary>
+        </member>
+    </members>
+</doc>
